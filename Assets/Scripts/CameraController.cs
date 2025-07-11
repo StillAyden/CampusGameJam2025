@@ -7,8 +7,7 @@ public class CameraController : MonoBehaviour
 
     Vector3 camFollowVelocity = Vector3.zero;
     [SerializeField] float camFollowSpeed = 0.5f;
-    [SerializeField] float camOffset;
-    [SerializeField] float camHeight;
+    [SerializeField] Vector3 camOffset = new Vector3();
 
     private void Awake()
     {
@@ -24,7 +23,7 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         Vector3 targetPosition = Vector3.SmoothDamp(cam.transform.position,
-                                                        new Vector3(target.transform.position.x + camOffset, target.transform.position.y + camHeight, target.transform.position.z),
+                                                        new Vector3(target.transform.position.x + camOffset.x, target.transform.position.y + camOffset.y, target.transform.position.z + camOffset.z),
                                                             ref camFollowVelocity, camFollowSpeed);
         cam.transform.position = targetPosition;
     }
