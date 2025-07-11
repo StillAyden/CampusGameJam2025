@@ -13,20 +13,48 @@ public class RotateFloorArrow  : MonoBehaviour
         // Get the Rewired Player object for this player ID
         player = ReInput.players.GetPlayer(playerId);
         Cursor.lockState = CursorLockMode.Locked;
+        _arrowFloor.gameObject.SetActive(false);
+
+        var lastController = player.controllers.GetLastActiveController();
+
+        if (lastController != null)
+        {
+            if (lastController.type == ControllerType.Joystick)
+            {
+                Debug.Log("Using Controller");
+            }
+            else
+            {
+                Debug.Log("Using Keyboard/Mouse");
+            }
+        }
+        else
+        {
+            Debug.Log("No controller input detected yet.");
+        }
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if(player.controllers.GetLastActiveController().type == ControllerType.Joystick)
-{
-            // Player is using a controller
-            _arrowFloor.gameObject.SetActive(false);
-        }
-    else
+        var lastController = player.controllers.GetLastActiveController();
+        if (lastController != null)
         {
-            // Player is using keyboard/mouse
-            _arrowFloor.gameObject.SetActive(true);
-            GetInput();
+            if (lastController.type == ControllerType.Joystick)
+            {
+                // Player is using a controller
+                _arrowFloor.gameObject.SetActive(false);
+            }
+            else
+            {
+                // Player is using keyboard/mouse
+                _arrowFloor.gameObject.SetActive(true);
+                GetInput();
+            }
+        }
+        else
+        {
+            // No input yet — safe fallback
+            _arrowFloor.gameObject.SetActive(false);
         }
     }
 

@@ -22,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
     public Animator _animatorAttack;
     public float attackDamage;
 
+    [Header("Dodge")]
+    public float speedDodge;
+    public GameObject getRotationFromArrow;
+
     [Header("Speed")]
     public float AttackSpeed;
 
@@ -149,6 +153,14 @@ else
     void Dodge()
     {
         Debug.Log("Dodge!");
+        if (player.controllers.GetLastActiveController().type == ControllerType.Joystick)
+        {
+            this.GetComponent<Rigidbody>().AddForce(transform.forward*speedDodge, ForceMode.Impulse);
+        }
+        else
+        {
+            this.GetComponent<Rigidbody>().AddForce(-getRotationFromArrow.transform.up*speedDodge, ForceMode.Impulse);
+        }
     }
 
     void LoseHealth()
