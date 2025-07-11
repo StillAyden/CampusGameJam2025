@@ -1,6 +1,7 @@
 using UnityEngine;
 using Rewired;
 using System.Collections.Generic;
+using UnityEngine.Windows;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -200,6 +201,23 @@ else
     private void usePotion()
     {
         Debug.Log("I used a Potion");
+        switch (currentPotion)
+        {
+            case 0:
+                Debug.Log("Used Health Potion");
+                GainHealth();
+                break;
+
+            case -1:
+                Debug.Log("Used Stamina Potion");
+                GainSpeed();
+                break;
+
+            case 1:
+                Debug.Log("Used Strength Potion");
+                GainDamage();
+                break;
+        }
     }
     public void Interact()
     {

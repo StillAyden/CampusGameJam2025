@@ -534,7 +534,7 @@ MonoBehaviour:
   currentPotion: 0
   _health: 100
   _animatorAttack: {fileID: 6603911155303146794}
-  attackDamage: 0
+  attackDamage: 15
   speedDodge: 10
   getRotationFromArrow: {fileID: 7469029821632980202}
   AttackSpeed: 1
@@ -1176,7 +1176,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 7
         _elementType: 1
         _elementIdentifierId: 9
         _axisRange: 0
