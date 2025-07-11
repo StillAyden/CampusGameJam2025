@@ -9,17 +9,27 @@ public class EnemyAttack : MonoBehaviour
     public Color flashColor = Color.red;
     public float flashDuration = 0.2f;
     public int flashCount = 3;
+    public float attackRange = 2f;
 
     private Color originalColor;
-
+    private Transform player; // Reference to player position
+    private PlayerMovement playerMovement; // Reference to player script
     void Start()
     {
         if (enemyRenderer == null)
             enemyRenderer = GetComponentInChildren<Renderer>();
 
         originalColor = enemyRenderer.material.color;
-    }
 
+        // Find player by tag
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+            playerMovement = playerObj.GetComponent<PlayerMovement>();
+        }
+    }
+  
     public void StartAttack()
     {
         if (!isAttacking)
@@ -53,6 +63,18 @@ public class EnemyAttack : MonoBehaviour
     void DealDamage()
     {
         Debug.Log("Enemy attacked the player for " + attackDamage + " damage.");
-        // Add your player damage logic here
+        if (player != null && playerMovement != null)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (distanceToPlayer <= attackRange)
+            {
+                Debug.Log("Enemy attacked the player for " + attackDamage + " damage.");
+                playerMovement.LoseHealth(attackDamage);
+            }
+            else
+            {
+                Debug.Log("Player was out of range — attack missed.");
+            }
+        }
     }
 }

@@ -164,9 +164,16 @@ else
         }
     }
 
-    void LoseHealth()
+    public void LoseHealth(float damageAmount)
     {
+        _health -= damageAmount;
+        Debug.Log("Player health: " + _health);
 
+        if (_health <= 0)
+        {
+            Debug.Log("Player died!");
+            // Add your death logic here (e.g., respawn, game over screen)
+        }
     }
 
     void GainHealth()
