@@ -18,10 +18,12 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Health")]
     public float _health;
+    
 
     [Header("Attack")]
     public Animator _animatorAttack;
-    public float attackDamage;
+    public float attackDamage = 15;
+    public PlayerAttackEnemy _attackEnemy;
 
     [Header("Dodge")]
     public float speedDodge;
@@ -149,6 +151,7 @@ else
     {
         Debug.Log("ATTACK!");
         _animatorAttack.SetTrigger("Attack");
+        _attackEnemy.timeToAttack(attackDamage);
     }
 
     void Dodge()

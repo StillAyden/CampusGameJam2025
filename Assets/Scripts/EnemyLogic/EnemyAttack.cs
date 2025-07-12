@@ -13,7 +13,7 @@ public class EnemyAttack : MonoBehaviour
 
     private Color originalColor;
     private Transform player; // Reference to player position
-    private PlayerMovement playerMovement; // Reference to player script
+    public PlayerMovement playerMovement; // Reference to player script
     void Start()
     {
         if (enemyRenderer == null)
@@ -66,7 +66,7 @@ public class EnemyAttack : MonoBehaviour
         if (player != null && playerMovement != null)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-            if (distanceToPlayer <= attackRange)
+            if (distanceToPlayer >= attackRange)
             {
                 Debug.Log("Enemy attacked the player for " + attackDamage + " damage.");
                 playerMovement.LoseHealth(attackDamage);
