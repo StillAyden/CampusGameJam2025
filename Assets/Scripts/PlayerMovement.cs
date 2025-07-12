@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Health")]
     public float _health;
     public Animator _deathAnimator;
+    public HUD _changeofHealth;
 
     [Header("Attack")]
     public Animator _animatorAttack;
@@ -53,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             isometricCamera = Camera.main;
         }
         _health = 100;
+        _changeofHealth._HealthBar.style.width = (_health/100)*310;
     }
 
     // Update is called once per frame
@@ -177,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _health -= damageAmount;
         Debug.Log("Player health: " + _health);
-
+        _changeofHealth._HealthBar.style.width = (_health / 100) * 310;
         if (_health <= 0)
         {
             Debug.Log("Player died!");
@@ -188,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
 
     void GainHealth()
     {
-
+        _changeofHealth._HealthBar.style.width = (_health / 100) * 310;
     }
 
     void GainSpeed()
