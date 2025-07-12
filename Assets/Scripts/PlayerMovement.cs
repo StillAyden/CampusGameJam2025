@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Health")]
     public float _health;
-    
+    public Animator _deathAnimator;
 
     [Header("Attack")]
     public Animator _animatorAttack;
@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Speed")]
     public float AttackSpeed;
+
+
 
     [Header("Tutorial")]
     public bool isMoving = false;
@@ -88,10 +90,14 @@ public class PlayerMovement : MonoBehaviour
                 // Player is using a controller
                 RotateToDirection(worldDirection);
             }
-else
+            else
             {
                 // Player is using keyboard/mouse
                 // Do nothing
+                if (horizontal != 0 || vertical != 0)
+                {
+                    SetRotation(horizontal, vertical);
+                }
             }
 
         }
@@ -176,6 +182,7 @@ else
         {
             Debug.Log("Player died!");
             // Add your death logic here (e.g., respawn, game over screen)
+            _deathAnimator.SetBool("Died", true);
         }
     }
 
@@ -241,7 +248,29 @@ else
         //}
     }
 
+    void SetRotation(float horizontal, float vertical)
+    {
+        float angle = 0f;
 
+        if (horizontal == 0 && vertical == 1)      // W
+            angle = 0f;
+        else if (horizontal == -1 && vertical == 1) // WA
+            angle = -45f;
+        else if (horizontal == -1 && vertical == 0) // A
+            angle = -90f;
+        else if (horizontal == -1 && vertical == -1) // SA
+            angle = -135f;
+        else if (horizontal == 0 && vertical == -1) // S
+            angle = 180f;
+        else if (horizontal == 1 && vertical == -1) // SD
+            angle = 135f;
+        else if (horizontal == 1 && vertical == 0) // D
+            angle = 90f;
+        else if (horizontal == 1 && vertical == 1) // WD
+            angle = 45f;
+
+        transform.rotation = Quaternion.Euler(0, angle, 0);
+    }
     private void Tutorial()
     {
         switch (stepsList)
