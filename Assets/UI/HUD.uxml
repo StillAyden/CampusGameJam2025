@@ -1,0 +1,31 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Style%20Sheet/The%20Dungeons%20of%20Za_UI%20Style%20Sheet.uss?fileID=7433441132597879392&amp;guid=bddb14d8b2fcdc34d966a2efedc11655&amp;type=3#The Dungeons of Za_UI Style Sheet" />
+    <engine:VisualElement name="HUD" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; align-items: center; justify-content: center; width: 1600px; height: 900px; align-self: auto; left: 160px; top: 90px;">
+        <engine:VisualElement name="Top" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; width: 100%; height: 180px;">
+            <engine:VisualElement name="TopLeft" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; justify-content: flex-start; height: 100%; width: 480px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+                <engine:VisualElement name="PlayerProfile" picking-mode="Ignore" style="flex-grow: 0; width: 90px; height: 90px; flex-shrink: 0; background-color: rgb(255, 255, 255); -unity-slice-left: 1; -unity-slice-top: 1; -unity-slice-right: 1; -unity-slice-bottom: 1;" />
+                <engine:VisualElement name="Bars" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; align-items: center; width: 310px; height: 90px; justify-content: center; background-color: rgba(255, 255, 255, 0);">
+                    <engine:VisualElement name="HealthBar" style="flex-grow: 0; flex-shrink: 0; width: 100%; height: 50%; background-image: url(&quot;project://database/Assets/UI/Sprites/The%20Dungeons%20of%20Za_UI_HealthBar.png?fileID=2800000&amp;guid=66dfb55e9966aef4c95e1ed217fb790e&amp;type=3#The Dungeons of Za_UI_HealthBar&quot;); background-size: 110% 700%; background-position-x: center 0;" />
+                    <engine:VisualElement name="StaminaBar" style="flex-grow: 0; flex-shrink: 0; width: 100%; height: 50%; background-image: url(&quot;project://database/Assets/UI/Sprites/The%20Dungeons%20of%20Za_UI_StaminaBar.png?fileID=2800000&amp;guid=c93555c48a4a3174886fdfaa5e7c6442&amp;type=3#The Dungeons of Za_UI_StaminaBar&quot;); background-size: 110% 700%; background-position-x: center 0;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="TopCenter" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: column; justify-content: flex-start; height: 100%; width: 640px;" />
+            <engine:VisualElement name="TopRight" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; justify-content: flex-start; height: 100%; width: 480px;">
+                <engine:VisualElement name="PotionsPicker" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; width: 180px; height: 180px; background-color: rgba(255, 255, 255, 0); background-image: url(&quot;project://database/Assets/UI/Sprites/The%20Dungeons%20of%20Za_UI_PotionPicker_No.png?fileID=2800000&amp;guid=9c3623056a39a084281fc30cb7234482&amp;type=3#The Dungeons of Za_UI_PotionPicker_No&quot;); background-size: 130% 130%;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="Center" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; width: 100%; height: 540px;">
+            <engine:VisualElement name="CenterLeft" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: column; justify-content: flex-start; height: 100%; width: 480px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; align-items: flex-start;" />
+            <engine:VisualElement name="CenterCenter" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: column; justify-content: flex-start; height: 100%; width: 640px;" />
+            <engine:VisualElement name="CenterRight" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: column; justify-content: flex-start; height: 100%; width: 480px; align-items: flex-start;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="Bottom" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; width: 100%; height: 180px;">
+            <engine:VisualElement name="BottomLeft" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; justify-content: flex-start; height: 100%; width: 480px; align-items: center;">
+                <engine:VisualElement name="Map" picking-mode="Ignore" enabled="true" style="flex-grow: 0; flex-shrink: 0; width: 180px; height: 180px; background-color: rgba(255, 255, 255, 0); background-image: url(&quot;project://database/Assets/UI/Sprites/The%20Dungeons%20of%20Za_UI_Map.png?fileID=2800000&amp;guid=9742098566ff6bb419f4d09d46851053&amp;type=3#The Dungeons of Za_UI_Map&quot;); background-size: 190% 190%;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="BottomCenter" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: column; justify-content: flex-start; height: 100%; width: 640px;" />
+            <engine:VisualElement name="BottomRight" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; justify-content: flex-start; height: 100%; width: 480px;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement name="StatusEffectIndicator" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; width: 120px; height: 120px; background-color: rgba(255, 255, 255, 0); position: absolute; top: 345px; left: 1610px; right: 0; bottom: 0; background-image: url(&quot;project://database/Assets/UI/Sprites/The%20Dungeons%20of%20Za_UI_StatusEffect_Slow.png?fileID=2800000&amp;guid=4ff8a9335f921bc4aa7babb16fde5e8e&amp;type=3#The Dungeons of Za_UI_StatusEffect_Slow&quot;); background-size: 280% 280%;" />
+</engine:UXML>
